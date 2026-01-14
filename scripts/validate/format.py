@@ -56,6 +56,9 @@ def get_categories_content(contents: List[str]) -> Tuple[Categories, CategoriesL
         if not line_content.startswith('|') or line_content.startswith('|---'):
             continue
 
+        raw_title = [
+            raw_content.strip() for raw_content in line_content.split('|')[1:-1]
+        ][0]
 
         title_match = link_re.match(raw_title)
         if title_match:
